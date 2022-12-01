@@ -1,0 +1,36 @@
+.tableUsers {
+    width: 70%;
+}
+.gridUser {
+    display: flex;
+}
+.gridTable {
+    flex: 5;
+}
+.gridForm {
+    flex: 5;
+}
+.buttonGrid {
+    display: flex;
+}
+.btnAdd {
+    margin: 2px;
+}
+.btnUpdate {
+    margin: 2px;
+}
+.btnDelete {
+    margin: 2px;
+}
+.gridTableDelete {
+    display: none;
+}
+.updateGrid {
+    display: none;
+}
+.btn-group-lg>.btn, .btn-lg {
+    padding: 3px;
+    font-size: 14px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}

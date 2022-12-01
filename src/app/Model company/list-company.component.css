@@ -1,0 +1,34 @@
+.tableCompanies {
+    width: 70%;
+    margin-left: 10px;
+}
+.tableUsers {
+    width: 70%;
+}
+.gridUser {
+    display: flex;
+}
+.gridTable {
+    flex: 7;
+}
+.gridForm {
+    flex: 3;
+}
+.buttonGrid {
+    display: flex;
+}
+.btnAdd {
+    margin: 2px;
+}
+.btnUpdate {
+    margin: 2px;
+}
+.btnDelete {
+    margin: 2px;
+}
+.gridTableDelete {
+    display: none;
+}
+.updateGrid {
+    display: none;
+}

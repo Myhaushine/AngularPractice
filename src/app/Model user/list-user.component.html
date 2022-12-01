@@ -1,0 +1,109 @@
+<div class="gridUser">
+    <!-- table Final -->
+    <div class="container gridTable">
+        <table class="table tableUsers">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full name</th>
+                    <th>Phone number</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of datas">
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.phone}}</td>
+                    <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"
+                            (click)="getDetails(item)">Details</button></td>
+                    <td><button mat-button color="primary" class="btn btn-info btn-lg" data-toggle="modal" data-target="#deleteModal"
+                            (click)="deleteUser(item)">Delete</button></td>
+                    <td><button mat-button color="warn" (click)="editUser(item)">Edit</button></td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+    <div class="formUser gridForm">
+        <!-- form add -->
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit(submitUser)" id="formAdd">
+
+            <label for="first-name">Full Name: </label><br />
+            <input id="first-name" type="text" formControlName="name" required>
+            <span *ngIf="profileForm.controls.name.invalid"> *Need to fill Name</span>
+            <br />
+            <label for="phone-number">Phone Number: </label><br />
+            <input id="phone-number" type="text" formControlName="phone" required>
+            <span *ngIf="profileForm.controls.name.invalid"> *Need to fill Phone Number</span>
+            <br />
+            <p>Complete the form to enable button.</p>
+            <button class="btn btn-success" type="submit" [disabled]="!profileForm.valid">Submit</button>
+        </form>
+        <br />
+        <!-- form update -->
+        <form [formGroup]="formUpdate" (ngSubmit)="onUpdate(editUserData)">
+            <label for="id-user">ID: </label> <br />
+            <input id="id-user" type="text" formControlName="idUser" value={{formUpdate.value.idUser}}>
+            <br />
+
+            <label for="name-Update">Full Name: </label><br />
+            <input id="name-Update" type="text" formControlName="nameUpdate" value={{formUpdate.value.nameUpdate}}>
+
+            <br />
+            <label for="phone-Update">Phone Number: </label><br />
+            <input id="phone-Update" type="text" formControlName="phoneUpdate" value={{formUpdate.value.phoneUpdate}}>
+
+            <br />
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+        <!-- button -->
+        <div class="buttonGrid">
+            <button type="button" class="btn btn-primary btnAdd" (click)="showAddForm()">Add New User</button>
+            <button type="button" class="btn btn-warning btnUpdate" (click)="showUpdateForm()">Update User</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" >
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" >Details of {{userSeleted.name}} </h4>
+                </div>
+                <div class="modal-body">
+                    <p #idDetails>ID number: {{userSeleted.id}}</p>
+                    <p #nameDetails>Name of user: {{userSeleted.name}}</p>
+                    <p #phoneDetails>Phone number of user:{{userSeleted.phone}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Popup Delete -->
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Are you sure to delete {{deleteSeleted.name}}?</h4>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-default btn btn-success" data-dismiss="modal" (click)="confirmDelete(deleteSeleted)" >Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,76 @@
+<div class="gridUser">
+  <!-- table Final -->
+  <div class="container">
+    <table class="table tableCompanies">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Company Name</th>
+          <th>Logo</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of datas">
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.logo}}</td>
+          <td>{{item.country}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- delete teble (just show when someone want to delete data) -->
+  <div class="container gridTableDelete">
+    <table class="table tableUsers">
+        <thead>
+            <tr>
+              <th>ID</th>
+              <th>Company Name</th>
+              <th>Logo</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of datas">
+            <tr>
+              <td>{{item.id}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.logo}}</td>
+              <td>{{item.country}}</td>
+            </tr>
+          </tbody>
+    </table>
+</div>
+<div class="formUser gridForm">
+    <!-- form add-->
+    <div class="form-group">
+        <label for="usr">Full Name:</label>
+        <input type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+        <label for="usr">Phone Number:</label>
+        <input type="number" class="form-control" id="usr">
+    </div>
+    <!-- form update (just show when someone want to update data) -->
+    <div class="updateGrid">
+        <div class="form-group">
+            <label for="usr">ID</label>
+            <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+            <label for="usr">Full Name:</label>
+            <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+            <label for="usr">Phone Number:</label>
+            <input type="number" class="form-control" id="usr">
+        </div>
+        <button type="button" class="btn btn-success btnFinish">Finish</button>
+    </div>
+    <!-- button -->
+    <div class="buttonGrid">
+        <button type="button" class="btn btn-primary btnAdd">Add New User</button>
+        <button type="button" class="btn btn-warning btnUpdate">Update User</button>
+        <button type="button" class="btn btn-danger btnDelete">Delete User</button>
+    </div>
+</div>
